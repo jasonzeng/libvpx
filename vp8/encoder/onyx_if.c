@@ -3627,7 +3627,7 @@ static void encode_frame_to_data_rate
             cpi->decimation_factor = 1;
         }
 
-        //vpx_log("Encoder: Decimation Factor: %d \n",cpi->decimation_factor);
+        //vpx_log("Encoder: Decimation Factor: %d\n",cpi->decimation_factor);
     }
 
     // The following decimates the frame rate according to a regular pattern (i.e. to 1/2 or 2/3 frame rate)
@@ -4815,7 +4815,7 @@ static void check_gf_quality(VP8_COMP *cpi)
 #if 0
     {
         FILE *f = fopen("gfneeded.stt", "a");
-        fprintf(f, "%10d %10d %10d %10d %10ld \n",
+        fprintf(f, "%10d %10d %10d %10d %10ld\n",
                 cm->current_video_frame,
                 cpi->common.frames_since_golden,
                 gf_active_pct, gf_ref_usage_pct,

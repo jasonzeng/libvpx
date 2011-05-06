@@ -971,7 +971,7 @@ static void calc_pframe_target_size(VP8_COMP *cpi)
                     (cpi->buffer_level * 100) / cpi->oxcf.optimal_buffer_level);
             fclose(f);
 #endif
-            //vpx_log("Decoder: Drop frame due to bandwidth: %d \n",cpi->buffer_level, cpi->av_per_frame_bandwidth);
+            //vpx_log("Decoder: Drop frame due to bandwidth: %d\n",cpi->buffer_level, cpi->av_per_frame_bandwidth);
 
             cpi->drop_frame = TRUE;
         }

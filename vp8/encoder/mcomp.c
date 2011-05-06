@@ -1864,7 +1864,7 @@ void print_mode_context(void)
 
     for (j = 0; j < 6; j++)
     {
-        fprintf(f, "  { // %d \n", j);
+        fprintf(f, "  { // %d\n", j);
         fprintf(f, "    ");
 
         for (i = 0; i < 4; i++)

@@ -1874,7 +1874,7 @@ void print_tree_update_probs()
 
     for (i = 0; i < BLOCK_TYPES; i++)
     {
-        fprintf(f, "  { \n");
+        fprintf(f, "  {\n");
 
         for (j = 0; j < COEF_BANDS; j++)
         {

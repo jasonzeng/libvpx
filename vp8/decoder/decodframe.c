@@ -1079,7 +1079,7 @@ int vp8_decode_frame(VP8D_COMP *pbi)
                                "A stream must start with a complete key frame");
     }
 
-    /* vpx_log("Decoder: Frame Decoded, Size Roughly:%d bytes  \n",bc->pos+pbi->bc2.pos); */
+    /* vpx_log("Decoder: Frame Decoded, Size Roughly:%d bytes\n",bc->pos+pbi->bc2.pos); */
 
     /* If this was a kf or Gf note the Q used */
     if ((pc->frame_type == KEY_FRAME) ||
