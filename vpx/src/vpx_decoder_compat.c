@@ -194,7 +194,7 @@ vpx_dec_err_t vpx_dec_set_mem_map(vpx_dec_ctx_t   *ctx_,
                 break;
         }
 
-        if (save) free(save);
+        free(save);
     }
 
     return SAVE_STATUS(ctx, res);
