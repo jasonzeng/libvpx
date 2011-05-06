@@ -32,7 +32,6 @@
 #endif
 #include "vpx_mem/vpx_mem.h"
 #include "vp8/common/idct.h"
-#include "dequantize.h"
 #include "vp8/common/threading.h"
 #include "decoderthreading.h"
 #include "dboolhuff.h"
