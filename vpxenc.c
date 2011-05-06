@@ -1118,7 +1118,7 @@ static void usage_exit()
 {
     int i;
 
-    fprintf(stderr, "Usage: %s <options> -o dst_filename src_filename \n",
+    fprintf(stderr, "Usage: %s <options> -o dst_filename src_filename\n",
             exec_name);
 
     fprintf(stderr, "\nOptions:\n");
