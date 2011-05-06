@@ -3126,9 +3126,9 @@ static void find_next_key_frame(VP8_COMP *cpi, FIRSTPASS_STATS *this_frame)
             int64_t clip_bits = (int64_t)(cpi->twopass.total_stats->count * cpi->oxcf.target_bandwidth / DOUBLE_DIVIDE_CHECK((double)cpi->oxcf.frame_rate));
             int64_t over_spend = cpi->oxcf.starting_buffer_level - cpi->buffer_level;
 
-            if ((last_kf_resampled && (kf_q > cpi->worst_quality)) ||                                               // If triggered last time the threshold for triggering again is reduced
-                ((kf_q > cpi->worst_quality) &&                                                                  // Projected Q higher than allowed and ...
-                 (over_spend > clip_bits / 20)))                                                               // ... Overspend > 5% of total bits
+            if ((kf_q > cpi->worst_quality) &&                   // If projected Q higher than allowed and ...
+                 (last_kf_resampled ||                          // ... triggered last time the threshold for triggering again is reduced, or
+                 (over_spend > clip_bits / 20)))               // ... Overspend > 5% of total bits
                 resample_trigger = TRUE;
             else
                 resample_trigger = FALSE;
