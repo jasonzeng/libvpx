@@ -902,6 +902,9 @@ L_SC int L_(build)(
             num_sub >>= 1;
         }
 
+        h = AVL_BUILD_ITER_VAL(p);
+        L_CHECK_READ_ERROR(0)
+        AVL_BUILD_ITER_INCR(p)
         if (num_sub == 2)
         {
             /* Build a subtree with two nodes, slanting to greater.
@@ -909,9 +912,6 @@ L_SC int L_(build)(
             ** greater subtree when there is an odd number of nodes to
             ** split between the two subtrees. */
 
-            h = AVL_BUILD_ITER_VAL(p);
-            L_CHECK_READ_ERROR(0)
-            AVL_BUILD_ITER_INCR(p)
             child = AVL_BUILD_ITER_VAL(p);
             L_CHECK_READ_ERROR(0)
             AVL_BUILD_ITER_INCR(p)
@@ -926,9 +926,6 @@ L_SC int L_(build)(
         {
             /* Build a subtree with one node. */
 
-            h = AVL_BUILD_ITER_VAL(p);
-            L_CHECK_READ_ERROR(0)
-            AVL_BUILD_ITER_INCR(p)
             AVL_SET_LESS(h, AVL_NULL)
             AVL_SET_GREATER(h, AVL_NULL)
             AVL_SET_BALANCE_FACTOR(h, 0)

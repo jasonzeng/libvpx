@@ -259,9 +259,9 @@ void vp8_sixtap_predict16x16_sse2
 
     if (xoffset)
     {
+        HFilter = vp8_six_tap_mmx[xoffset];
         if (yoffset)
         {
-            HFilter = vp8_six_tap_mmx[xoffset];
             vp8_filter_block1d16_h6_sse2(src_ptr - (2 * src_pixels_per_line), FData2,   src_pixels_per_line, 1, 21, 32, HFilter);
             VFilter = vp8_six_tap_mmx[yoffset];
             vp8_filter_block1d16_v6_sse2(FData2 + 32, dst_ptr,   dst_pitch, 32, 16 , 16, dst_pitch, VFilter);
@@ -269,7 +269,6 @@ void vp8_sixtap_predict16x16_sse2
         else
         {
             /* First-pass only */
-            HFilter = vp8_six_tap_mmx[xoffset];
             vp8_filter_block1d16_h6_only_sse2(src_ptr, src_pixels_per_line, dst_ptr, dst_pitch, 16, HFilter);
         }
     }
@@ -298,9 +297,9 @@ void vp8_sixtap_predict8x8_sse2
 
     if (xoffset)
     {
+        HFilter = vp8_six_tap_mmx[xoffset];
         if (yoffset)
         {
-            HFilter = vp8_six_tap_mmx[xoffset];
             vp8_filter_block1d8_h6_sse2(src_ptr - (2 * src_pixels_per_line), FData2,   src_pixels_per_line, 1, 13, 16, HFilter);
             VFilter = vp8_six_tap_mmx[yoffset];
             vp8_filter_block1d8_v6_sse2(FData2 + 16, dst_ptr,   dst_pitch, 16, 8 , 8, dst_pitch, VFilter);
@@ -308,7 +307,6 @@ void vp8_sixtap_predict8x8_sse2
         else
         {
             /* First-pass only */
-            HFilter = vp8_six_tap_mmx[xoffset];
             vp8_filter_block1d8_h6_only_sse2(src_ptr, src_pixels_per_line, dst_ptr, dst_pitch, 8, HFilter);
         }
     }
@@ -336,9 +334,9 @@ void vp8_sixtap_predict8x4_sse2
 
     if (xoffset)
     {
+        HFilter = vp8_six_tap_mmx[xoffset];
         if (yoffset)
         {
-            HFilter = vp8_six_tap_mmx[xoffset];
             vp8_filter_block1d8_h6_sse2(src_ptr - (2 * src_pixels_per_line), FData2,   src_pixels_per_line, 1, 9, 16, HFilter);
             VFilter = vp8_six_tap_mmx[yoffset];
             vp8_filter_block1d8_v6_sse2(FData2 + 16, dst_ptr,   dst_pitch, 16, 8 , 4, dst_pitch, VFilter);
@@ -346,7 +344,6 @@ void vp8_sixtap_predict8x4_sse2
         else
         {
             /* First-pass only */
-            HFilter = vp8_six_tap_mmx[xoffset];
             vp8_filter_block1d8_h6_only_sse2(src_ptr, src_pixels_per_line, dst_ptr, dst_pitch, 4, HFilter);
         }
     }

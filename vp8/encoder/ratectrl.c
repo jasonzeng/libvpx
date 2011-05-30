@@ -557,11 +557,8 @@ static void calc_gf_params(VP8_COMP *cpi)
     // This is updated once the real frame size/boost is known.
     if (cpi->oxcf.fixed_q == -1)
     {
-        if (cpi->pass == 2)         // 2 Pass
-        {
-            cpi->frames_till_gf_update_due = cpi->baseline_gf_interval;
-        }
-        else                            // 1 Pass
+        cpi->frames_till_gf_update_due = cpi->baseline_gf_interval;
+        if (cpi->pass != 2)         // 1 Pass
         {
             cpi->frames_till_gf_update_due = cpi->baseline_gf_interval;
 
@@ -1501,16 +1498,11 @@ void vp8_compute_frame_size_bounds(VP8_COMP *cpi, int *frame_under_shoot_limit, 
                 else
                 {
                     // Stron overshoot limit for constrained quality
+                    *frame_over_shoot_limit  = cpi->this_frame_target * 11 / 8;
                     if (cpi->oxcf.end_usage == USAGE_CONSTRAINED_QUALITY)
-                    {
-                        *frame_over_shoot_limit  = cpi->this_frame_target * 11 / 8;
                         *frame_under_shoot_limit = cpi->this_frame_target * 2 / 8;
-                    }
                     else
-                    {
-                        *frame_over_shoot_limit  = cpi->this_frame_target * 11 / 8;
                         *frame_under_shoot_limit = cpi->this_frame_target * 5 / 8;
-                    }
                 }
             }
         }

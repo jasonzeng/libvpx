@@ -3924,14 +3924,9 @@ static void encode_frame_to_data_rate
         }
 
 
-        if (cm->frame_type == KEY_FRAME)
+        vp8_de_noise(cpi->Source, cpi->Source, l , 1,  0, RTCD(postproc));
+        if (cm->frame_type != KEY_FRAME)
         {
-            vp8_de_noise(cpi->Source, cpi->Source, l , 1,  0, RTCD(postproc));
-        }
-        else
-        {
-            vp8_de_noise(cpi->Source, cpi->Source, l , 1,  0, RTCD(postproc));
-
             src = cpi->Source->y_buffer;
 
             if (cpi->Source->y_stride < 0)
@@ -4469,18 +4464,13 @@ static void encode_frame_to_data_rate
         else
         {
             // Damp value for first few frames
+            cpi->ni_tot_qi += Q;
             if (cpi->ni_frames > 150 )
-            {
-                cpi->ni_tot_qi += Q;
                 cpi->ni_av_qi = (cpi->ni_tot_qi / cpi->ni_frames);
-            }
             // For one pass, early in the clip ... average the current frame Q
             // value with the worstq entered by the user as a dampening measure
             else
-            {
-                cpi->ni_tot_qi += Q;
                 cpi->ni_av_qi = ((cpi->ni_tot_qi / cpi->ni_frames) + cpi->worst_quality + 1) / 2;
-            }
 
             // If the average Q is higher than what was used in the last frame
             // (after going through the recode loop to keep the frame size within range)
