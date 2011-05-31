@@ -6,9 +6,9 @@
  */
 
 /*
- *	The program is distributed under terms of BSD license. 
+ *	The program is distributed under terms of BSD license.
  *	You can obtain the copy of the license by visiting:
- *	
+ *
  *	http://www.opensource.org/licenses/bsd-license.php
  */
 
@@ -18,7 +18,7 @@
 #include <stddef.h>  /* offsetof */
 
 /*
- 	restore pointer to the structure by a pointer to its field
+ *	restore pointer to the structure by a pointer to its field
  */
 #define structof(p,t,f) ((t*)(- offsetof(t,f) + (char*)(p)))
 
@@ -33,4 +33,3 @@
 
 
 #endif
-
