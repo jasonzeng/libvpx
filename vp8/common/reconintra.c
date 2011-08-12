@@ -152,7 +152,7 @@ void vp8_build_intra_predictors_mby_s(MACROBLOCKD *x)
     unsigned char *yabove_row = x->dst.y_buffer - x->dst.y_stride;
     unsigned char yleft_col[16];
     unsigned char ytop_left = yabove_row[-1];
-    unsigned char *ypred_ptr = x->predictor;
+    unsigned char *ypred_ptr;
     int r, c, i;
 
     int y_stride = x->dst.y_stride;
