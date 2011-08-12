@@ -143,8 +143,6 @@ void vp8_build_component_cost_table(int *mvcost[2], const MV_CONTEXT *mvc, int m
 
     vp8_clear_system_state();
 
-    i = 1;
-
     if (mvc_flag[0])
     {
         mvcost [0] [0] = cost_mvcomponent(0, &mvc[0]);
