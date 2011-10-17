@@ -153,7 +153,7 @@ void vp8mt_build_intra_predictors_mby_s(VP8D_COMP *pbi, MACROBLOCKD *x, int mb_r
     unsigned char *yleft_col;
     unsigned char yleft_buf[16];
     unsigned char ytop_left;      /* = yabove_row[-1]; */
-    unsigned char *ypred_ptr = x->predictor;
+    unsigned char *ypred_ptr;     /* = x->predictor; */
     int r, c, i;
 
     int y_stride = x->dst.y_stride;
